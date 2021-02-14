@@ -15,7 +15,7 @@ candidate_options = []
 # Declare a new dictionary so that we can count the votes separately for each candidate. 
 candidate_votes = {}
 
-# Winning candidate and winning count tracker:
+# Track the winning candidate, vote count and percentage
 # Declare a variable winning candidate
 winning_candidate = ""
 
@@ -54,7 +54,21 @@ with open(file_to_load) as election_data:
         # Add a vote to that candidate's count. This is the format for adding the number of times a certain key (a specific candidate name) appears in the candidate_votes dictionary. or in other words checking the value of that key. 
         candidate_votes[candidate_name] +=1
 
-        
+    # Save the results to our text file. 
+    with open(file_to_save, "w") as txt_file:
+
+        # Print the final vote count to the terminal. 
+        election_results = (
+            f"\nElection Results\n"
+            f"----------------------------\n"
+            f"Total Votes: {total_votes:,}\n"
+            f"-----------------------------\n")
+
+        print(election_results, end="")
+
+        # Save the final vote count to the text file. 
+        txt_file.write(election_results)
+
 # Determine the percentage of votes for each candidate by looping through the count
 # Iterate through the candidate list.
 for candidate_name in candidate_votes:
@@ -63,7 +77,7 @@ for candidate_name in candidate_votes:
     # Calculate the percentage of votes.
     vote_percentage = float(votes) / float(total_votes) * 100
     # Print the candidate name and percentage of votes.
-    print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+    # print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
 
     # Determine the winning vote count and candidate
     # Determine if the votes is greater than the winning count. 
@@ -75,7 +89,7 @@ for candidate_name in candidate_votes:
         # Set the winning_candidate equal to the candidate's name.
         winning_candidate = candidate_name
 
-
+# Print the winning candidates' results to the terminal.
 winning_candidate_summary = (
     f"----------------------------\n"
     f"Winner: {winning_candidate}\n"
@@ -83,6 +97,6 @@ winning_candidate_summary = (
     f"Winning Percentage: {winning_percentage:.1f}%\n"
     f"----------------------------\n"
 )
-print(winning_candidate_summary)
+# print(winning_candidate_summary)
 
 
