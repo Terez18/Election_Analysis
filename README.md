@@ -44,12 +44,11 @@ Below are the congressional election outcomes including a description of how the
     			reader = csv.reader(election_data)
 		```
     	
-	- The header row was skipped using "next" so it was not counted in the total number of votes:
-			
-			```
+	- The header row was skipped using "next" so it was not counted in the total number of votes:	
+		``````
 			# Read the header
     			header = next(reader)
-			```
+		``````
 
 	- A for loop was created to iterate over the csv file and count the number of votes:
 			
