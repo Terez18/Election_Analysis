@@ -45,21 +45,21 @@ Below are the congressional election outcomes including a description of how the
 		```
     	
 	- The header row was skipped using "next" so it was not counted in the total number of votes:
-			```
 			
+			```
 			# Read the header
     			header = next(reader)
 			```
 
 	- A for loop was created to iterate over the csv file and count the number of votes:
-			```
 			
+			```
 			# For each row in the CSV file.
     			for row in reader:
 			```
-        - Votes counted to reach at the total number of 369,711. It is possible to use also another shorter version for this total_votes += 1.
-				```
+       - Votes counted to reach at the total number of 369,711. It is possible to use also another shorter version for this total_votes += 1.
 				
+				```
 				# Add to the total vote count
         			total_votes = total_votes + 1
 				```
