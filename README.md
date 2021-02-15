@@ -37,6 +37,7 @@ Below are the congressional election outcomes including a description of how the
 		# Initialize a total vote counter.
 		total_votes = 0
 		```
+	
 	- The election_data file was opened to extract the data from it. "with open" command was used to eliminate the need to close the file and to make the code clean and concise:
 		```
 		# Read the csv
@@ -56,17 +57,19 @@ Below are the congressional election outcomes including a description of how the
 		# For each row in the CSV file.
     	for row in reader:
 		```
-       - Votes counted to reach at the total number of 369,711. It is possible to use also another shorter version for this total_votes += 1.
+    - Votes counted to reach a total number of 369,711. It is possible to use another shorter version for this: total_votes += 1.
 				
 		```
 		# Add to the total vote count
         total_votes = total_votes + 1
 		```
 
+
 - The county results were:
   - Jefferson county received 10.5% of the votes and 38,855 number of votes.
   - Denver county received 82.8% of the votes and 306,055 number of votes.
   - Arapahoe county received 6.7% of the votes and 24,801 number of votes.
+
 
 	- To calculate the data by county, a list[] and a dictionary{} were created. 
 		```
@@ -74,11 +77,13 @@ Below are the congressional election outcomes including a description of how the
 		county_options = []
 		county_votes = {}
 		```
+	
 	- Inside the for loop that was reading through all the rows, county names were extracted from the second column:
 		```
 		# 3: Extract the county name from each row.
 		county_name = row[1]
 		```
+	
 	- If county name was not already on the list, it was added to the list of counties using if statement and then append. 
 		```
 		# 4a: Write an if statement that checks that the
@@ -88,16 +93,19 @@ Below are the congressional election outcomes including a description of how the
 			# 4b: Add the existing county to the list of counties.
 			county_options.append(county_name)
 		```
+	
 	- Number of votes per county is set to zero so that counting of votes per county can begin. This information was taken from the dictionary county_votes, therefore the format is as below to extract the value which is the number of votes from the key which is the name of the county:
 		```
 		# 4c: Begin tracking the county's vote count.
 		county_votes[county_name] = 0
 		```
+	
 	- Votes counted per county:
 		```
 		# 5: Add a vote to that county's vote count.
 		county_votes[county_name] += 1
 		```
+	
 	- To calculate the county vote percentage a for loop was created to get the county names, and the county vote count (cvotes) from the county dictionary:
 		```
 		# 6a: Write a for loop to get the county from the county dictionary.
@@ -105,6 +113,7 @@ Below are the congressional election outcomes including a description of how the
 			# 6b: Retrieve the county vote count.
 			cvotes = county_votes[county_name]
 		```
+	
 	- A formula for calculating the percentage was created, the cvotes and total_votes was changed from integers to decimal point numbers using "float":
 		```
 		# 6c: Calculate the percentage of votes for the county.
@@ -117,6 +126,7 @@ Below are the congressional election outcomes including a description of how the
 		county_results = (f"{county_name}: {county_vote_percentage:.1f}% ({cvotes:,})\n")
 		print(county_results)
 		```
+
 
 - Denver was the county with the largest number of votes
 
@@ -136,6 +146,8 @@ Below are the congressional election outcomes including a description of how the
 			largest_turnout_count_percentage = county_vote_percentage
 			largest_turnout_county = county_name
 		```
+
+
 - The candidates were: 
   - Charles Casper Stockham
   - Diana DeGette
