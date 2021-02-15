@@ -33,14 +33,16 @@ Below are the congressional election outcomes including a description of how the
 - There were 369,711 total number of votes cast in this congressional election. 
   
 	- To calculate the total votes "total_votes" variable was initialized and started at zero:
- 		# Initialize a total vote counter.
+ 		```
+		# Initialize a total vote counter.
 		total_votes = 0
-	
+		```
 	- The election_data file was opened to extract the data from it. "with open" command was used to eliminate the need to close the file and to make the code clean and concise:
+		```
 		# Read the csv
 		with open(file_to_load) as election_data:
     			reader = csv.reader(election_data)
-
+		```
     	
 	- The header row was skipped using "next" so it was not counted in the total number of votes:
 			# Read the header
