@@ -32,26 +32,26 @@ Below are the congressional election outcomes including a description of how the
 
 - There were 369,711 total number of votes cast in this congressional election. 
   
-	-- To calculate the total votes "total_votes" variable was initialized and started at zero:
+	- To calculate the total votes "total_votes" variable was initialized and started at zero:
  		# Initialize a total vote counter.
 		total_votes = 0
 	
-	-- The election_data file was opened to extract the data from it. "with open" command was used to eliminate the need to close the file and to make the code clean and concise:
+	- The election_data file was opened to extract the data from it. "with open" command was used to eliminate the need to close the file and to make the code clean and concise:
 		# Read the csv
 		with open(file_to_load) as election_data:
     			reader = csv.reader(election_data)
 
     	
-	-- The header row was skipped using "next" so it was not counted in the total number of votes:
+	- The header row was skipped using "next" so it was not counted in the total number of votes:
 			# Read the header
     			header = next(reader)
 
 
-	-- A for loop was created to iterate over the csv file and count the number of votes:
+	- A for loop was created to iterate over the csv file and count the number of votes:
 			# For each row in the CSV file.
     			for row in reader:
 
-        -- votes counted to reach at the total number of 369,711. It is possible to use also another shorter version for this total_votes += 1.
+        - Votes counted to reach at the total number of 369,711. It is possible to use also another shorter version for this total_votes += 1.
 				# Add to the total vote count
         			total_votes = total_votes + 1
 
@@ -60,16 +60,16 @@ Below are the congressional election outcomes including a description of how the
   - Denver county received 82.8% of the votes and 306,055 number of votes.
   - Arapahoe county received 6.7% of the votes and 24,801 number of votes.
 
-	-- To calculate the data by county, a list[] and a dictionary{} were created. 
+	- To calculate the data by county, a list[] and a dictionary{} were created. 
 		# 1: Create a county list and county votes dictionary.
 		county_options = []
 		county_votes = {}
 
-	-- Inside the for loop that was reading through all the rows, county names were extracted from the second column:
+	- Inside the for loop that was reading through all the rows, county names were extracted from the second column:
 		 	# 3: Extract the county name from each row.
         		county_name = row[1]
 	
-	-- if county name was not already on the list, it was added to the list of counties using if statement and then append. 
+	- If county name was not already on the list, it was added to the list of counties using if statement and then append. 
 
 			# 4a: Write an if statement that checks that the
         		# county does not match any existing county in the county list.
@@ -78,30 +78,30 @@ Below are the congressional election outcomes including a description of how the
             			# 4b: Add the existing county to the list of counties.
             			county_options.append(county_name)
 
-	-- number of votes per county is set to zero so that counting of votes per county can begin. This information was taken from the dictionary county_votes, therefore the format is as below to extract the value which is the number of votes from the key which is the name of the county:
+	- Number of votes per county is set to zero so that counting of votes per county can begin. This information was taken from the dictionary county_votes, therefore the format is as below to extract the value which is the number of votes from the key which is the name of the county:
 
             			# 4c: Begin tracking the county's vote count.
             			county_votes[county_name] = 0
 
-	-- votes counted per county:
+	- Votes counted per county:
 
         		# 5: Add a vote to that county's vote count.
         		county_votes[county_name] += 1
 
-	-- To calculate the county vote percentage a for loop was created to get the county names, and the county vote count (cvotes) from the county dictionary:
+	- To calculate the county vote percentage a for loop was created to get the county names, and the county vote count (cvotes) from the county dictionary:
 
 			# 6a: Write a for loop to get the county from the county dictionary.
     			for county_name in county_votes:
         			# 6b: Retrieve the county vote count.
         			cvotes = county_votes[county_name]
 	
-	-- A formula for calculating the percentage was created, the cvotes and total_votes was changed from integers to decimal point numbers using "float":
+	- A formula for calculating the percentage was created, the cvotes and total_votes was changed from integers to decimal point numbers using "float":
 
         			# 6c: Calculate the percentage of votes for the county.
         			county_vote_percentage = float(cvotes) / float(total_votes) * 100
 
 
-	-- when the numbers were printed out, an f-string was used and the number of digits after the decimal point was limited using :.1f
+	- When the numbers were printed out, an f-string was used and the number of digits after the decimal point was limited using :.1f
 				 # 6d: Print the county results to the terminal.
         			county_results = (f"{county_name}: {county_vote_percentage:.1f}% ({cvotes:,})\n")
         			print(county_results)
@@ -109,7 +109,7 @@ Below are the congressional election outcomes including a description of how the
 
 - Denver was the county with the largest number of votes
 
-	-- To determine which county had the largest number of votes, new variables were initialized and started at zero:
+	- To determine which county had the largest number of votes, new variables were initialized and started at zero:
 
 		# 2: Track the largest county and county voter turnout.
 		largest_turnout_county = ""
@@ -117,7 +117,7 @@ Below are the congressional election outcomes including a description of how the
 		largest_turnout_count_percentage = 0
 
  				
-	-- Then an if statement was created to compare vote counts and also to compare vote percentages. The county with the largest number of votes and highest percentage of votes was determined and named. 
+	- Then an if statement was created to compare vote counts and also to compare vote percentages. The county with the largest number of votes and highest percentage of votes was determined and named. 
 				# 6f: Write an if statement to determine the winning county and get its vote count.
         			if (cvotes > largest_turnout_count) and (county_vote_percentage > largest_turnout_count_percentage ):
             				largest_turnout_count = cvotes
@@ -135,14 +135,14 @@ Below are the congressional election outcomes including a description of how the
   - Raymon Anthony Doane received 3.1% of the votes and 11,606 number of votes. 
 
 
-	-- To determine the names of the candidates, the number of votes each candidate received and the percentage of votes each candidate received, a similar code was used to the one described above for the county names, number of votes and percentages. 
+	- To determine the names of the candidates, the number of votes each candidate received and the percentage of votes each candidate received, a similar code was used to the one described above for the county names, number of votes and percentages. 
   
 
 
 - The winner of the election was:
   - Diana DeGette who received 73.8% of the vote and 272,892 number of votes. 
   
-	-- To determine the winner of the election: name, number of votes and percentage of votes, a similar code was used to the code that was used for finding the largest turnout county's name, number of votes and percentage of votes. 
+	- To determine the winner of the election: name, number of votes and percentage of votes, a similar code was used to the code that was used for finding the largest turnout county's name, number of votes and percentage of votes. 
 
 
 ---
@@ -153,11 +153,11 @@ This code proved to be very useful for determining the results of this specific 
 This code is uniquely qualified to provide election data from any election with some simple modifications. With a small investment of time and effort, the return can be very significant if this code is used multiple times. 
 A couple of items that can easily be changed to analyze results of another election:
 - The path to the files:
-  -- Since the code is giving instructions to open the election results file, it could theoretically open any file. It may be necessary to change the path instructions to make sure the correct file is accessed. 
+  - Since the code is giving instructions to open the election results file, it could theoretically open any file. It may be necessary to change the path instructions to make sure the correct file is accessed. 
   	# Add a variable to load a file from a path.
 	file_to_load = os.path.join("Resources", "election_results.csv")
 
-  -- The path to the text file where the results of the analysis will be writen may also need to change. 
+  - The path to the text file where the results of the analysis will be writen may also need to change. 
 	# Add a variable to save the file to a path.
 	file_to_save = os.path.join("analysis", "election_analysis.txt")
 
